@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My hobbies</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <style>
+    body {
+      background-color: #c1f7f7;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+    }
+    .text {
+      flex: 1;
+      color: black;
+      text-align: left;
+    }
+    .text2 {
+      color: black;
+    }
+    .text3 {
+      text-align: left;
+    }
+    .text4 {
+      text-align: center;
+      color: red;
+    }
+    .image {
+      margin-left: 10px;
+      margin-right: 350px;
+      margin-top: 40px;
+      position: relative;
+      max-width: 300px;
+    }
+    .image2 {
+      margin-left: 350px;
+      margin-right: 10px;
+      margin-top: 40px;
+      position: relative;
+      max-width: 300px;
+    }
+  </style>
+  <body>
+    <h2>My Projects</h2>
+    <h3 class="text2">
+      Here's a list of the projects I worked on, both in school and my own
+      personal projects&#128512;
+    </h3>
+    <div class="container">
+      <div class="text">
+        <p>
+          <b>Helicopter Altitude Control:</b> The aim of this project was to
+          design a controller for regulating the altitude of a helicopter
+          simulation. A controller was designed to manage the altitude of a
+          specific helicopter simulation based on client-defined requirements.
+          The Lead Compensator was developed based on the results derived from
+          the transfer function of the controller block, which was obtained
+          using MATLAB's SISO tool. Consequently, the transfer function inputted
+          into the controller block was selected to ensure that the closed-loop
+          performance of the system met all requirements through the application
+          of the phase Lead Compensator.
+        </p>
+      </div>
+      <img src="images/heli.PNG" alt="my cloud" class="image" />
+    </div>
+    <div class="container">
+      <img src="images/thermal.PNG" alt="my chilli" class="image2" />
+      <div class="text3">
+        <p>
+          <b
+            >Multivariable Control of a Thermal System in Laboratory
+            Environment(FINAL YEAR PROJECT):</b
+          >
+          In this project, the aim was to compare the performance of three
+          different controllers—PID, State Space, and SMC—as they were applied
+          to a multivariable system. The project involved designing and
+          digitally implementing the three controllers on a physical system in
+          the control lab. To ensure fairness in the comparison, it was ensured
+          that each controller achieved similar performance levels. This
+          involved comparing factors such as the computational cost of
+          implementation and the magnitude of control inputs required to achieve
+          comparable performance across the different controllers.
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text">
+        <p>
+          <b>Digital Signal Processing Project:</b> Implementing two compression
+          schemes, namely the Discrete Cosine Transform (DCT) compression and
+          the Adaptive Differential Pulse Code Modulation (ADPCM) Compression,
+          was carried out. The aim was to compare their performance on various
+          signals using different metrics.(Photo was acquired from
+          xposuremusic.com)
+        </p>
+      </div>
+      <img src="images/signal.webp" alt="my cloud" class="image" />
+    </div>
+    <div class="container">
+      <img src="images/imagerecog.jpg" alt="my cat" class="image2" />
+      <div class="text3">
+        <p>
+          <b>Image Recognition using Machine Learning:</b>I developed an image
+          recognition system using convolutional neural networks (CNNs) in
+          Python(Jupyter Notebook). This involved building and training a CNN
+          model using TensorFlow. The process included preprocessing image data,
+          defining and configuring the CNN architecture, training the model on
+          labeled image datasets, and evaluating its performance using metrics
+          such as accuracy and loss. The trained model was then capable of
+          accurately classifying or recognizing objects within images.(Photo was
+          acquired from viso.ai)
+        </p>
+      </div>
+    </div>
+    <div class="container">
+      <div class="text">
+        <p>
+          <b>Line following Robot:</b> The focal point of this project involved
+          constructing a mobile two-wheeled robot with the capability to
+          navigate and solve a maze utilizing a line sensing algorithm. To
+          execute the maze-solving objective, a team of two Mechatronics
+          students were equipped with a pre-assembled line sensing DFRobot
+          Turtle 2WD Mobile Platform robot controlled by an Arduino RoMeo V2
+          microcontroller. Their assignment was to utilize MATLAB, alongside
+          Simulink and Arduino support from Simulink, to devise functions
+          enabling the robot to familiarize itself with the maze. Once
+          acclimated to the maze layout, the robot would refine its movement
+          strategy and successfully navigate the maze to its conclusion.
+        </p>
+      </div>
+      <img src="images/linefollow.PNG" alt="my cloud" class="image" />
+    </div>
+    <div class="container">
+      <img src="images/manipulator.PNG" alt="my chilli" class="image2" />
+      <div class="text3">
+        <p>
+          <b>2D Manipulator(Warehouse organizational robot) Simulation:</b>
+          In this project, I was tasked to simulate a warehouse organizational
+          robot responsible for moving packages to different locations in the
+          facility. The robot had two links and could move along a rail to
+          facilitate this functionality.The robot’s end-effector had suction
+          cups and a sensor that can detect when the arm is sufficiently close
+          to a desired package. The package was held stationary by another
+          system until the robot confirms it has successfully grabbed the
+          package.
+        </p>
+      </div>
+    </div>
+    <h3 class="text4">
+      Other mini projects I worked on may be found<a
+        href="https://github.com/matlalijr/mini_projects.git"
+      >
+        here.</a
+      >
+    </h3>
+  </body>
+</html>
