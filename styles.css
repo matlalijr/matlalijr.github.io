@@ -1,4 +1,3 @@
-
 :root {
     --primary: #0f172a;
     --secondary: #1e293b;
@@ -82,39 +81,88 @@ h3 {
     transition: all 0.3s ease;
 }
 
-.button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem 2rem;
-    border-radius: var(--radius);
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1.125rem;
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.button.primary {
+.menu-toggle {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.nav-mobile {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--secondary);
+    padding: 2rem;
+    width: 250px;
+    height: 100%;
+    z-index: 1000;
+}
+
+.nav-mobile.active {
+    display: block;
+}
+
+.nav-mobile a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 1rem 0;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    padding: 2rem;
+    background: var(--muted);
+    text-align: center;
+}
+
+footer form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer button {
+    padding: 1rem 2rem;
     background: var(--accent);
     color: white;
-    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-}
-
-.button.secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
     border-radius: var(--radius);
-    padding: 2rem;
     transition: all 0.3s ease;
-    height: 100%;
+}
+
+footer button.success {
+    background: green;
+}
+
+footer button.error {
+    background: red;
 }
 
 /* Responsive */
