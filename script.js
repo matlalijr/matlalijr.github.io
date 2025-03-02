@@ -1,9 +1,8 @@
-
 // Smooth scroll implementation
 const smoothScroll = (target, duration = 1000) => {
-    const targetPosition = target.getBoundingClientRect().top;
+    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
-    const distance = targetPosition - 80;
+    const distance = targetPosition - startPosition - 80; // Adjusted for better scrolling
     let startTime = null;
 
     const animation = currentTime => {
