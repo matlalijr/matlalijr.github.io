@@ -1,46 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Educational Background</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <style>
-    body{
-    background-image: url('images/books.png');
-    background-size:1000px;
-    background-position: top;
-    background-repeat: no-repeat;
-    background-color: rgba(255, 255, 255, 0.8);
-    background-color:#c1f7f7;}
-  </style>
-  <body>
-    <h2>Educational Background</h2>
-    <style>.aligned-div {text-align: left;}</style>
-    <div class="aligned-div">
-    
-    <h4>BSc (Eng) Mechatronics</h4>
-    <h4>University of Cape Town 2019-2023</h4>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Education and Experience - Matlali</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at top, #111 0%, #000 100%);
+    color: #eee;
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  header {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #eee;
+    font-weight: 600;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    background: #9b5de5;
+    color: #fff;
+  }
 
+  main {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+  }
+  h1, h2 {
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #9b5de5;
+  }
+  section {
+    margin-bottom: 60px;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-left: 5px solid #9b5de5;
+    padding-left: 12px;
+  }
+  .edu-item, .exp-item {
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(155,93,229,0.2);
+  }
+  .edu-item h3, .exp-item h3 {
+    font-size: 1.4rem;
+    color: #9b5de5;
+  }
+  .edu-item p, .exp-item p {
+    margin-top: 8px;
+    color: #ccc;
+    font-size: 1rem;
+  }
+  .date {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 6px;
+  }
+  .exp-role {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  .exp-company {
+    color: #9b5de5;
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav>
     <ul>
-      <li>Engineering and the Built Environment Mentor</li>
-      <li>Computer Science and electronics Tutor at Roscommon House residence</li>
-      <li>
-        Final year project in Multivariable Thermal Control Systems using PID
-        control, SMC, and State Space
-      </li></div>
-      <div class="aligned-div">
-        <h4>International Baccalaureate(IB) Diploma </h4>
-        <h4>Machabeng College            2016-2018</h4>
-    
-        <ul>
-          <li>Batch Valedictorian</li>
-          <li>Student Leadership(Prefect)</li>
-          <li>Head of Music Club and Piano tutor</li>
-      </div>
-    
+      <li><a href="index.html">Home</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="education_experience.html" class="active">Education & Experience</a></li>
+      <li><a href="projects.html">Projects</a></li>
     </ul>
-  </body>
+  </nav>
+</header>
+
+<main>
+  <h1>Education & Experience</h1>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+
+    <article class="edu-item">
+      <h3>Bachelor of Engineering in Mechatronics</h3>
+      <p>University of Cape Town (UCT)</p>
+      <p class="date">2016 - 2020</p>
+      <p>Focused on control systems, robotics, machine learning, and project management.</p>
+    </article>
+
+    <article class="edu-item">
+      <h3>International Baccalaureate (IB) Diploma</h3>
+      <p>Machabeng College</p>
+      <p class="date">2014 - 2016</p>
+      <p>Completed the IB program with a strong emphasis on mathematics and physics.</p>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <article class="exp-item">
+      <h3><span class="exp-role">Bioremediation Plant Engineer</span> — <span class="exp-company">Letseng Diamonds</span></h3>
+      <p class="date">Jan 2025 – Present</p>
+      <p>Aiding the successful operation and optimized performance of the water bioremediation plant.</p>
+      <p>Involved in the integration and management of C++ based ESP32 Industrial Shields PLCs, sensors, and electrical systems to support plant functions and ensure reliable system performance.</p>
+      <p>Designing and handling the interfacing between the PLC and the Node-RED based SCADA software using MQTT.</p>
+      <p>Troubleshooting and resolving plant issues, including system hardware and software malfunctions, to minimize downtime and maintain a consistent output.</p>
+      <p>Currently implementing Predictive Maintenance on plant equipment using Machine Learning with Python.</p>
+    </article>
+
+    <article class="exp-item">
+      <h3><span class="exp-role">Instrumentation and Electrical Engineering Intern</span> — <span class="exp-company">Letseng Diamonds</span></h3>
+      <p class="date">Jan 2024 – Dec 2024</p>
+      <p>Used Allen Bradley PLCs to control conveyor belt systems transporting ore, troubleshoot plant issues, configure sensor operations (pre-alarms and emergency shutdowns), and perform routine maintenance.</p>
+      <p>Utilized FactoryTalk View SCADA to monitor equipment health, energy consumption, temperature, and water/slurry flow rates.</p>
+      <p>Ensured reliable operation of electrical systems, performing preventive maintenance, fault diagnosis, and corrective action on electrical assets like transformers, motors, generators, and instrumentation devices.</p>
+      <p>Led deployment of a new backup generator on-site.</p>
+    </article>
+
+    <article class="exp-item">
+      <h3><span class="exp-role">Electro-Mechanical Engineering Intern</span> — <span class="exp-company">Letseng Diamonds</span></h3>
+      <p class="date">Dec 2019 – Jan 2020</p>
+      <p>Performed plant and site electrical maintenance.</p>
+      <p>Handled mechanical and electrical maintenance and monitoring of generators, including fitting, turning, and welding tasks.</p>
+    </article>
+  </section>
+</main>
+</body>
 </html>
