@@ -1,162 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects</title>
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
-  <style>
-    body {
-      background-color: #c1f7f7;
-    }
-    .container {
-      display: flex;
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Matlali - Projects</title>
+
+<!-- Font Awesome for icons -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  crossorigin="anonymous"
+/>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(circle at top, #111 0%, #000 100%);
+    color: #fff;
+    line-height: 1.6;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+  body.loaded { opacity: 1; }
+  body.fade-out { opacity: 0; }
+
+  .site-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    padding: 15px 0 5px 0;
+    color: #9b5de5;
+    letter-spacing: 2px;
+    user-select: none;
+  }
+
+  header {
+    background: rgba(20, 20, 20, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  nav ul { display: flex; list-style: none; justify-content: center; gap: 20px; }
+  nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    background: rgba(155, 93, 229, 0.3);
+    color: #9b5de5;
+  }
+
+  main {
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+  }
+
+  h1 {
+    color: #9b5de5;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .project {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    background: rgba(155, 93, 229, 0.07);
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid rgba(155, 93, 229, 0.3);
+    box-shadow: 0 0 15px rgba(155, 93, 229, 0.15);
+    transition: all 0.4s ease;
+  }
+  .project:hover {
+    background: rgba(155, 93, 229, 0.15);
+    box-shadow: 0 8px 25px rgba(155, 93, 229, 0.6);
+    transform: translateY(-6px);
+  }
+  .project img {
+    width: 250px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 15px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+  .project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #d6c7ff;
+  }
+  .project-desc {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+  .photo-credit {
+    color: #777;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 768px) {
+    .project {
+      flex-direction: column;
       align-items: center;
-    }
-    .text {
-      flex: 1;
-      color: black;
-      text-align: left;
-    }
-    .text2 {
-      color: black;
-    }
-    .text3 {
-      text-align: left;
-    }
-    .text4 {
       text-align: center;
-      color: red;
     }
-    .image {
-      margin-left: 10px;
-      margin-right: 350px;
-      margin-top: 40px;
-      position: relative;
-      max-width: 300px;
+    .project img {
+      width: 80%;
+      height: auto;
+      margin-bottom: 15px;
     }
-    .image2 {
-      margin-left: 350px;
-      margin-right: 10px;
-      margin-top: 40px;
-      position: relative;
-      max-width: 300px;
+    .project-content {
+      width: 100%;
     }
-  </style>
-  <body>
-    <h2>My Projects</h2>
-    <h3 class="text2">
-      Here's a list of the projects I worked on, both in school and my own
-      personal projects&#128512;
-    </h3>
-    <div class="container">
-      <div class="text">
-        <p>
-          <b>Helicopter Altitude Control:</b> The aim of this project was to
-          design a controller for regulating the altitude of a helicopter
-          simulation. A controller was designed to manage the altitude of a
-          specific helicopter simulation based on client-defined requirements.
-          The Lead Compensator was developed based on the results derived from
-          the transfer function of the controller block, which was obtained
-          using MATLAB's SISO tool. Consequently, the transfer function inputted
-          into the controller block was selected to ensure that the closed-loop
-          performance of the system met all requirements through the application
-          of the phase Lead Compensator.
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(.19,1,.22,1);
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="certifications.html">Certifications</a></li>
+        <li><a href="education.html">Education & Experience</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Projects</h1>
+
+    <article class="project fade-in">
+      <img src="images/heli.PNG" alt="Helicopter Altitude Control">
+      <div class="project-content">
+        <h2 class="project-title">Helicopter Altitude Control</h2>
+        <p class="project-desc">
+The aim of this project was to design a controller for regulating the altitude of a helicopter simulation. A controller was designed to manage the altitude of a specific helicopter simulation based on client-defined requirements. The Lead Compensator was developed based on the results derived from the transfer function of the controller block, which was obtained using MATLAB's SISO tool. Consequently, the transfer function inputted into the controller block was selected to ensure that the closed-loop performance of the system met all requirements through the application of the phase Lead Compensator.
         </p>
       </div>
-      <img src="images/heli.PNG" alt="my cloud" class="image" />
-    </div>
-    <div class="container">
-      <img src="images/thermal.PNG" alt="my chilli" class="image2" />
-      <div class="text3">
-        <p>
-          <b
-            >Multivariable Control of a Thermal System in Laboratory
-            Environment(FINAL YEAR PROJECT):</b
-          >
-          In this project, the aim was to compare the performance of three
-          different controllers—PID, State Space, and SMC—as they were applied
-          to a multivariable system. The project involved designing and
-          digitally implementing the three controllers on a physical system in
-          the control lab. To ensure fairness in the comparison, it was ensured
-          that each controller achieved similar performance levels. This
-          involved comparing factors such as the computational cost of
-          implementation and the magnitude of control inputs required to achieve
-          comparable performance across the different controllers.
+    </article>
+
+    <article class="project fade-in">
+      <img src="images/thermal.PNG" alt="Multivariable Thermal Control">
+      <div class="project-content">
+        <h2 class="project-title">Multivariable Control of a Thermal System in Laboratory Environment (Final Year Project)</h2>
+        <p class="project-desc">
+In this project, the aim was to compare the performance of three different controllers—PID, State Space, and SMC—as they were applied to a multivariable system. The project involved designing and digitally implementing the three controllers on a physical system in the control lab. To ensure fairness in the comparison, it was ensured that each controller achieved similar performance levels. This involved comparing factors such as the computational cost of implementation and the magnitude of control inputs required to achieve comparable performance across the different controllers.
         </p>
       </div>
-    </div>
-    <div class="container">
-      <div class="text">
-        <p>
-          <b>Digital Signal Processing Project:</b> Implementing two compression
-          schemes, namely the Discrete Cosine Transform (DCT) compression and
-          the Adaptive Differential Pulse Code Modulation (ADPCM) Compression,
-          was carried out. The aim was to compare their performance on various
-          signals using different metrics.(Photo was acquired from
-          xposuremusic.com)
+    </article>
+
+    <article class="project fade-in">
+      <img src="images/signal.webp" alt="Digital Signal Processing Project">
+      <div class="project-content">
+        <h2 class="project-title">Digital Signal Processing Project</h2>
+        <p class="project-desc">
+Implementing two compression schemes, namely the Discrete Cosine Transform (DCT) compression and the Adaptive Differential Pulse Code Modulation (ADPCM) Compression, was carried out. The aim was to compare their performance on various signals using different metrics.
+        </p>
+        <span class="photo-credit">Photo was acquired from xposuremusic.com</span>
+      </div>
+    </article>
+
+    <article class="project fade-in">
+      <img src="images/imagerecog.jpg" alt="Image Recognition using Machine Learning">
+      <div class="project-content">
+        <h2 class="project-title">Image Recognition using Machine Learning</h2>
+        <p class="project-desc">
+I developed an image recognition system using convolutional neural networks (CNNs) in Python (Jupyter Notebook). This involved building and training a CNN model using TensorFlow. The process included preprocessing image data, defining and configuring the CNN architecture, training the model on labeled image datasets, and evaluating its performance using metrics such as accuracy and loss. The trained model was then capable of accurately classifying or recognizing objects within images.
+        </p>
+        <span class="photo-credit">Photo was acquired from viso.ai</span>
+      </div>
+    </article>
+
+    <article class="project fade-in">
+      <img src="images/linefollow.PNG" alt="Line Following Robot">
+      <div class="project-content">
+        <h2 class="project-title">Line Following Robot</h2>
+        <p class="project-desc">
+The focal point of this project involved constructing a mobile two-wheeled robot with the capability to navigate and solve a maze utilizing a line sensing algorithm. To execute the maze-solving objective, a team of two Mechatronics students were equipped with a pre-assembled line sensing DFRobot Turtle 2WD Mobile Platform robot controlled by an Arduino RoMeo V2 microcontroller. Their assignment was to utilize MATLAB, alongside Simulink and Arduino support from Simulink, to devise functions enabling the robot to familiarize itself with the maze. Once acclimated to the maze layout, the robot would refine its movement strategy and successfully navigate the maze to its conclusion.
         </p>
       </div>
-      <img src="images/signal.webp" alt="my cloud" class="image" />
-    </div>
-    <div class="container">
-      <img src="images/imagerecog.jpg" alt="my cat" class="image2" />
-      <div class="text3">
-        <p>
-          <b>Image Recognition using Machine Learning:</b>I developed an image
-          recognition system using convolutional neural networks (CNNs) in
-          Python(Jupyter Notebook). This involved building and training a CNN
-          model using TensorFlow. The process included preprocessing image data,
-          defining and configuring the CNN architecture, training the model on
-          labeled image datasets, and evaluating its performance using metrics
-          such as accuracy and loss. The trained model was then capable of
-          accurately classifying or recognizing objects within images.(Photo was
-          acquired from viso.ai)
+    </article>
+
+   
+
+    <article class="project fade-in">
+      <img src="images/Predict.jpg" alt="Predictive Maintenance Project">
+      <div class="project-content">
+        <h2 class="project-title">Predictive Maintenance Project(In Progress)</h2>
+        <p class="project-desc">
+This project uses Python machine learning to predict plant equipment failures based on data from Arduino sensors. By analyzing sensor readings and applying ML algorithms, the system forecasts potential failures, enabling timely maintenance and reducing downtime.
         </p>
       </div>
-    </div>
-    <div class="container">
-      <div class="text">
-        <p>
-          <b>Line following Robot:</b> The focal point of this project involved
-          constructing a mobile two-wheeled robot with the capability to
-          navigate and solve a maze utilizing a line sensing algorithm. To
-          execute the maze-solving objective, a team of two Mechatronics
-          students were equipped with a pre-assembled line sensing DFRobot
-          Turtle 2WD Mobile Platform robot controlled by an Arduino RoMeo V2
-          microcontroller. Their assignment was to utilize MATLAB, alongside
-          Simulink and Arduino support from Simulink, to devise functions
-          enabling the robot to familiarize itself with the maze. Once
-          acclimated to the maze layout, the robot would refine its movement
-          strategy and successfully navigate the maze to its conclusion.
+    </article>
+
+    <article class="project fade-in">
+      <img src="images/scada.PNG" alt="Industrial Shields PLC and Node-RED SCADA Project">
+      <div class="project-content">
+        <h2 class="project-title">Industrial Shields PLC Interface with Node-RED SCADA</h2>
+        <p class="project-desc">
+I developed an interface between Industrial Shields PLCs and a Node-RED SCADA system using MQTT communication protocol. This integration enabled real-time remote monitoring and control of industrial equipment through a user-friendly SCADA dashboard.
         </p>
       </div>
-      <img src="images/linefollow.PNG" alt="my cloud" class="image" />
-    </div>
-    <div class="container">
-      <img src="images/manipulator.PNG" alt="my chilli" class="image2" />
-      <div class="text3">
-        <p>
-          <b>2D Manipulator(Warehouse organizational robot) Simulation:</b>
-          In this project, I was tasked to simulate a warehouse organizational
-          robot responsible for moving packages to different locations in the
-          facility. The robot had two links and could move along a rail to
-          facilitate this functionality.The robot’s end-effector had suction
-          cups and a sensor that can detect when the arm is sufficiently close
-          to a desired package. The package was held stationary by another
-          system until the robot confirms it has successfully grabbed the
-          package.
-        </p>
-      </div>
-    </div>
-    <h3 class="text4">
-      Other mini projects I worked on may be found<a
-        href="https://github.com/matlalijr/mini_projects.git"
-      >
-        here.</a
-      >
-    </h3>
-  </body>
+    </article>
+    <article class="project fade-in">
+  <img src="images/manipulator.PNG" alt="2D Manipulator Warehouse Robot">
+  <div class="project-content">
+    <h2 class="project-title">2D Manipulator (Warehouse organizational robot) Simulation</h2>
+    <p class="project-desc">
+      In this project, I was tasked to simulate a warehouse organizational robot responsible for moving packages to different locations in the facility. The robot had two links and could move along a rail to facilitate this functionality. The robot’s end-effector had suction cups and a sensor that can detect when the arm is sufficiently close to a desired package. The package was held stationary by another system until the robot confirms it has successfully grabbed the package.
+    </p>
+  </div>
+</article>
+
+<section id="mini-projects" class="fade-in" style="text-align:center; margin-top:60px;">
+  <h2 style="color:#9b5de5; margin-bottom: 20px;">Mini Projects</h2>
+  <p>Check out some of my fun, smaller projects I've been working on:</p>
+  <a href="https://github.com/matlalijr/mini_projects" target="_blank" rel="noopener" style="
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    background: #9b5de5;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  ">View Mini Projects on GitHub <i class="fab fa-github" style="margin-left:8px;"></i></a>
+</section>
+
+  </main>
+
+<script>
+  window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+
+  // Smooth fade-out on navigation
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', e => {
+      if (link.hostname === window.location.hostname && !link.hash) {
+        e.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 400);
+      }
+    });
+  });
+</script>
+
+</body>
 </html>
